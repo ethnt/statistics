@@ -55,7 +55,6 @@ module Statistics
       self.five_number_summary(data).merge({
         mean:     mean(data),
         iqr:      iqr(data),
-        variance: variance(data),
         std_dev:  standard_deviation(data),
         count:    count(data)
       }).each{|key,val| int_hash[key] = val.to_i}
