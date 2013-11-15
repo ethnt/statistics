@@ -52,6 +52,7 @@ module Statistics
 
     def self.summary(data)
       int_hash = {}
+      return int_hash if data.nil? || data.size < 1
       self.five_number_summary(data).merge({
         mean:     mean(data),
         iqr:      iqr(data),
