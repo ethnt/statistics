@@ -82,7 +82,7 @@ module Statistics
     # Get the variance of a data set.
     def variance(data)
       m = mean(data)
-      data.inject(0){|squares, n| squares + (n-m)**2} / (data.size - 1)
+      data.inject(0){|sum, n|sum + ((n-m)**2)} / data.size
     end
 
     # Get the standard deviation of a data set.
