@@ -7,35 +7,19 @@ module Statistics
     end
 
     def add(num)
-      for i in 0..(@set.length - 1)
-        @set[i] = @set[i] + num
-      end
-
-      return @set
+      @set = @set.map{|x| x + num}
     end
 
     def multiply(num)
-      for i in 0..(@set.length - 1)
-        @set[i] = @set[i] + num
-      end
-
-      return @set
+      @set = @set.map{|x| x * num}
     end
 
     def subtract(num)
-      for i in 0..(@set.length - 1)
-        @set[i] = @set[i] - num
-      end
-
-      return @set
+      @set = @set.map{|x| x - num}
     end
 
     def divide(num)
-      for i in 0..(@set.length - 1)
-        @set[i] = @set[i] / num
-      end
-
-      return @set
+      @set = @set.map{|x| x / num}
     end
   end
 end

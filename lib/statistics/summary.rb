@@ -10,7 +10,7 @@ module Statistics
     #   - 3rd quartile
     #   - maximum
     def self.five_number_summary(data)
-      summary = {
+      {
         minimum: minimum(data),
         q1: q1(data),
         median: median(data),
@@ -18,7 +18,6 @@ module Statistics
         maximum: maximum(data)
       }
 
-      return summary
     end
 
     # Generate an extended summary for a data set.
@@ -38,8 +37,7 @@ module Statistics
     #   - sum
     #   - count
     def self.extended_summary(data)
-      summary = self.five_number_summary(data)
-      summary = summary.merge({
+      self.five_number_summary(data).merge({
         range:    range(data),
         mean:     mean(data),
         iqr:      iqr(data),
@@ -50,8 +48,19 @@ module Statistics
         sum:      sum(data),
         count:    count(data)
       })
-
-      return summary
     end
+
+    def self.summary(data)
+      int_hash = {}
+      return int_hash if data.nil? || data.size < 1
+      self.five_number_summary(data).merge({
+        mean:     mean(data),
+        iqr:      iqr(data),
+        std_dev:  standard_deviation(data),
+        count:    count(data)
+      }).each{|key,val| int_hash[key] = val.to_i}
+      int_hash
+    end
+
   end
 end
